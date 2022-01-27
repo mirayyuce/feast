@@ -2,7 +2,7 @@ import os
 import tempfile
 import uuid
 from contextlib import contextmanager
-from pathlib import Path, PosixPath
+from pathlib import Path
 from textwrap import dedent
 from typing import List
 
@@ -116,7 +116,7 @@ def test_universal_cli(test_repo_config) -> None:
             runner.run(["teardown"], cwd=repo_path)
 
 
-def make_feature_store_yaml(project, test_repo_config, repo_dir_name: PosixPath):
+def make_feature_store_yaml(project, test_repo_config, repo_dir_name: Path):
     offline_creator: DataSourceCreator = test_repo_config.offline_store_creator(project)
 
     offline_store_config = offline_creator.create_offline_store_config()
